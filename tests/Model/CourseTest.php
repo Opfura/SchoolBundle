@@ -20,6 +20,23 @@ use Opfura\SchoolBundle\Model\Course;
 class CourseTest extends \PHPUnit_Framework_TestCase
 {
     /**
+     * Test title
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.4.0
+     */
+    public function testTitle()
+    {
+        $lesson = new Course;
+        $lesson->setTitle('Painting for beginners');
+
+        $this->assertSame(
+            'Painting for beginners',
+            $lesson->getTitle()
+        );
+    }
+
+    /**
      * Test createdAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>

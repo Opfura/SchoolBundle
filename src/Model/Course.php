@@ -22,6 +22,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Course
 {
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $title;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="created_at")
      */
@@ -32,6 +37,36 @@ class Course
      * @ORM\Column(type="datetime", name="updated_at")
      */
     protected $updatedAt;
+
+    /**
+     * Set title
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.4.0
+     *
+     * @param  string $title
+     *
+     * @return Course
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.4.0
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
 
     /**
      * Set createdAt
