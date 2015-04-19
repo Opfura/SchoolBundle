@@ -14,12 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Lesson
+ * Course
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  0.2.0
  */
-class Lesson
+class Course
 {
     /**
      * @Gedmo\Timestampable(on="create")
@@ -41,7 +41,7 @@ class Lesson
      *
      * @param  \DateTime $createdAt
      *
-     * @return Lesson
+     * @return Course
      */
     public function setCreatedAt(\DateTime $createdAt)
     {
@@ -71,7 +71,7 @@ class Lesson
      *
      * @param \DateTime $updatedAt
      *
-     * @return Lesson
+     * @return Course
      */
     public function setUpdatedAt(\DateTime $updatedAt)
     {
