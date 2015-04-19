@@ -9,15 +9,15 @@
 
 namespace Opfura\SchoolBundle\Tests\Model;
 
-use Opfura\SchoolBundle\Model\Class;
+use Opfura\SchoolBundle\Model\Lesson;
 
 /**
- * ClassTest
+ * LessonTest
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  0.2.0
  */
-class ClassTest extends \PHPUnit_Framework_TestCase
+class LessonTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Test createdAt
@@ -27,14 +27,14 @@ class ClassTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreatedAt()
     {
-        $class = new Class;
-        $class->setCreatedAt(new \DateTime(
+        $lesson = new Lesson;
+        $lesson->setCreatedAt(new \DateTime(
             '2015-04-04 12:00:00'
         ));
 
         $this->assertSame(
             '2015-04-04 12:00:00',
-            $class->getCreatedAt()->format('Y-m-d H:i:s')
+            $lesson->getCreatedAt()->format('Y-m-d H:i:s')
         );
     }
 
@@ -46,14 +46,14 @@ class ClassTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdatedAt()
     {
-        $class = new Class;
-        $class->setUpdatedAt(new \DateTime(
+        $lesson = new Lesson;
+        $lesson->setUpdatedAt(new \DateTime(
             '2015-04-04 12:00:00'
         ));
 
         $this->assertSame(
             '2015-04-04 12:00:00',
-            $class->getUpdatedAt()->format('Y-m-d H:i:s')
+            $lesson->getUpdatedAt()->format('Y-m-d H:i:s')
         );
     }
 }
