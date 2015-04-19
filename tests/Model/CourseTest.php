@@ -27,12 +27,12 @@ class CourseTest extends \PHPUnit_Framework_TestCase
      */
     public function testTitle()
     {
-        $lesson = new Course;
-        $lesson->setTitle('Painting for beginners');
+        $course = new Course;
+        $course->setTitle('Painting for beginners');
 
         $this->assertSame(
             'Painting for beginners',
-            $lesson->getTitle()
+            $course->getTitle()
         );
     }
 
@@ -44,14 +44,14 @@ class CourseTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreatedAt()
     {
-        $lesson = new Course;
-        $lesson->setCreatedAt(new \DateTime(
+        $course = new Course;
+        $course->setCreatedAt(new \DateTime(
             '2015-04-04 12:00:00'
         ));
 
         $this->assertSame(
             '2015-04-04 12:00:00',
-            $lesson->getCreatedAt()->format('Y-m-d H:i:s')
+            $course->getCreatedAt()->format('Y-m-d H:i:s')
         );
     }
 
@@ -63,14 +63,14 @@ class CourseTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdatedAt()
     {
-        $lesson = new Course;
-        $lesson->setUpdatedAt(new \DateTime(
+        $course = new Course;
+        $course->setUpdatedAt(new \DateTime(
             '2015-04-04 12:00:00'
         ));
 
         $this->assertSame(
             '2015-04-04 12:00:00',
-            $lesson->getUpdatedAt()->format('Y-m-d H:i:s')
+            $course->getUpdatedAt()->format('Y-m-d H:i:s')
         );
     }
 }
