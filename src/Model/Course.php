@@ -39,6 +39,19 @@ class Course
     protected $updatedAt;
 
     /**
+     * __toString()
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.4.0
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
+    /**
      * Set title
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>

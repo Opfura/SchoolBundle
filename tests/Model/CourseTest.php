@@ -37,6 +37,23 @@ class CourseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test __toString()
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.4.0
+     */
+    public function testToString()
+    {
+        $course = new Course;
+        $course->setTitle('Painting for beginners');
+
+        $this->assertSame(
+            'Painting for beginners',
+            (string) $course
+        );
+    }
+
+    /**
      * Test createdAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
