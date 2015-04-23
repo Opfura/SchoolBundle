@@ -27,7 +27,7 @@ class CourseTest extends \PHPUnit_Framework_TestCase
      */
     public function testTitle()
     {
-        $course = new Course;
+        $course = new Course();
         $course->setTitle('Painting for beginners');
 
         $this->assertSame(
@@ -44,7 +44,7 @@ class CourseTest extends \PHPUnit_Framework_TestCase
      */
     public function testToString()
     {
-        $course = new Course;
+        $course = new Course();
         $course->setTitle('Painting for beginners');
 
         $this->assertSame(
@@ -61,7 +61,7 @@ class CourseTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreatedAt()
     {
-        $course = new Course;
+        $course = new Course();
         $course->setCreatedAt(new \DateTime(
             '2015-04-04 12:00:00'
         ));
@@ -80,7 +80,7 @@ class CourseTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdatedAt()
     {
-        $course = new Course;
+        $course = new Course();
         $course->setUpdatedAt(new \DateTime(
             '2015-04-04 12:00:00'
         ));
