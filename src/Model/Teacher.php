@@ -48,9 +48,11 @@ class Teacher
      *
      * @param \Opfura\UserBundle\Model\UserInterface $user
      */
-    public function __construct(UserInterface $user)
+    public function __construct(UserInterface $user = null)
     {
-        $this->setUser($user);
+        if ($user) {
+            $this->setUser($user);
+        }
     }
 
     /**

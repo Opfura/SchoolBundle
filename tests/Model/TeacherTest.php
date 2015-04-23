@@ -47,7 +47,7 @@ class TeacherTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreatedAt()
     {
-        $teacher = new Teacher(new User());
+        $teacher = new Teacher();
         $teacher->setCreatedAt(new \DateTime(
             '2015-04-04 12:00:00'
         ));
@@ -66,7 +66,7 @@ class TeacherTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdatedAt()
     {
-        $teacher = new Teacher(new User());
+        $teacher = new Teacher();
         $teacher->setUpdatedAt(new \DateTime(
             '2015-04-04 12:00:00'
         ));
