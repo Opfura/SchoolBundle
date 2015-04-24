@@ -41,7 +41,7 @@ class Teacher
      *      minMessage = "Mini bio must be at least {{ limit }} characters long",
      *      maxMessage = "Mini bio cannot be longer than {{ limit }} characters"
      * )
-     * @ORM\Column(type="string", name="mini_bio")
+     * @ORM\Column(type="string", name="mini_bio", nullable=true)
      */
     protected $miniBio;
 
@@ -52,7 +52,7 @@ class Teacher
      * @since  0.7.0
      *
      * @Assert\Url()
-     * @ORM\Column(type="string", name="website_url")
+     * @ORM\Column(type="string", name="website_url", nullable=true)
      */
     protected $websiteUrl;
 
