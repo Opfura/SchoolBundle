@@ -93,7 +93,11 @@ class Teacher
      */
     public function __toString()
     {
-        return $this->getUser()->getName();
+        if ($this->getUser()) {
+            return $this->getUser()->getName();
+        }
+
+        return 'Unnamed teacher';
     }
 
     /**
