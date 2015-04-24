@@ -12,6 +12,7 @@ namespace Opfura\SchoolBundle\Model;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Opfura\UserBundle\Model\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Teacher
@@ -27,6 +28,33 @@ class Teacher
      * @var \Opfura\UserBundle\Model\UserInterface
      */
     protected $user;
+
+    /**
+     * miniBio
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     *
+     * @Assert\Length(
+     *      min = 30,
+     *      max = 250,
+     *      minMessage = "Mini bio must be at least {{ limit }} characters long",
+     *      maxMessage = "Mini bio cannot be longer than {{ limit }} characters"
+     * )
+     * @ORM\Column(type="string", name="mini_bio")
+     */
+    protected $miniBio;
+
+    /**
+     * websiteUrl
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     *
+     * @Assert\Url()
+     * @ORM\Column(type="string", name="website_url")
+     */
+    protected $websiteUrl;
 
     /**
      * @Gedmo\Timestampable(on="create")
@@ -56,6 +84,34 @@ class Teacher
     }
 
     /**
+     * __toString()
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getUser()->getName();
+    }
+
+    /**
+     * Get identifier
+     *
+     * Get id in format 006543
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     *
+     * @return string
+     */
+    public function getIdentifier()
+    {
+        return str_pad($this->id, 6, 0, STR_PAD_LEFT);
+    }
+
+    /**
      * Set user
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
@@ -79,6 +135,81 @@ class Teacher
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Get user's name
+     *
+     * Proxy to User::getName()
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     *
+     * @return string
+     */
+    public function getUserName()
+    {
+        return $this->getUser()->getName();
+    }
+
+    /**
+     * Set miniBio
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     *
+     * @param string $miniBio
+     *
+     * @return Teacher
+     */
+    public function setMiniBio($miniBio)
+    {
+        $this->miniBio = $miniBio;
+
+        return $this;
+    }
+
+    /**
+     * Get miniBio
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     *
+     * @return string
+     */
+    public function getMiniBio()
+    {
+        return $this->miniBio;
+    }
+
+    /**
+     * Set websiteUrl
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     *
+     * @param string $websiteUrl
+     *
+     * @return Teacher
+     */
+    public function setWebsiteUrl($websiteUrl)
+    {
+        $this->websiteUrl = $websiteUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get websiteUrl
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     *
+     * @return string
+     */
+    public function getWebsiteUrl()
+    {
+        return $this->websiteUrl;
     }
 
     /**

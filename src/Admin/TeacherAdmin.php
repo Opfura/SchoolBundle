@@ -34,6 +34,12 @@ class TeacherAdmin extends Admin
     {
         $formMapper
             ->add('user')
+            ->add('miniBio', 'textarea', array(
+                'attr' => array(
+                    'rows' => 3,
+                ),
+            ))
+            ->add('websiteUrl')
         ;
     }
 
@@ -49,6 +55,7 @@ class TeacherAdmin extends Admin
     {
         $datagridMapper
             ->add('user')
+            ->add('websiteUrl')
         ;
     }
 
@@ -64,7 +71,9 @@ class TeacherAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('user')
+            ->addIdentifier('identifier')
+            ->add('user')
+            ->add('userName')
             ->add('createdAt')
             ->add('updatedAt')
         ;

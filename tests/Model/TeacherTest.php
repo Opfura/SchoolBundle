@@ -40,6 +40,60 @@ class TeacherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test getUserName()
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     */
+    public function testGetUserName()
+    {
+        $user = new User();
+        $user->setFirstname('Chief');
+        $user->setLastname('McElroni');
+
+        $teacher = new Teacher($user);
+
+        $this->assertSame(
+            'Chief McElroni',
+            $teacher->getUserName()
+        );
+    }
+
+    /**
+     * Test miniBio
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     */
+    public function testMiniBio()
+    {
+        $teacher = new Teacher();
+        $teacher->setMiniBio('Chief is a wonderful teacher');
+
+        $this->assertSame(
+            'Chief is a wonderful teacher',
+            $teacher->getMiniBio()
+        );
+    }
+
+    /**
+     * Test websiteUrl
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.7.0
+     */
+    public function testWebsiteUrl()
+    {
+        $teacher = new Teacher();
+        $teacher->setWebsiteUrl('http://example.com');
+
+        $this->assertSame(
+            'http://example.com',
+            $teacher->getWebsiteUrl()
+        );
+    }
+
+    /**
      * Test createdAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
