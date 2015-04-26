@@ -30,6 +30,27 @@ class Teacher
     protected $user;
 
     /**
+     * name
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.8.0
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $name;
+
+    /**
+     * slug
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.8.0
+     *
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(type="string", unique=true)
+     */
+    protected $slug;
+
+    /**
      * miniBio
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
@@ -126,6 +147,8 @@ class Teacher
     public function setUser(UserInterface $user)
     {
         $this->user = $user;
+
+        $this->setName($user->getName());
     }
 
     /**
@@ -154,6 +177,49 @@ class Teacher
     public function getUserName()
     {
         return $this->getUser()->getName();
+    }
+
+    /**
+     * Set name
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.8.0
+     *
+     * @param string $name
+     *
+     * @return Teacher
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.8.0
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get slug
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.8.0
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**

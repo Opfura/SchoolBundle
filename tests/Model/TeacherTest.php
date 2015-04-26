@@ -31,11 +31,73 @@ class TeacherTest extends \PHPUnit_Framework_TestCase
         $user = new User();
         $user->setFirstname('Chief');
 
+        $teacher = new Teacher();
+        $teacher->setUser($user);
+
+        $this->assertSame(
+            $user,
+            $teacher->getUser()
+        );
+    }
+
+    /**
+     * Test contructor
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.8.0
+     */
+    public function testConstructor()
+    {
+        $user = new User();
+        $user->setFirstname('Chief');
+
         $teacher = new Teacher($user);
 
         $this->assertSame(
+            $user,
+            $teacher->getUser()
+        );
+
+        $this->assertSame(
             'Chief',
-            $teacher->getUser()->getName()
+            $teacher->getName()
+        );
+    }
+
+    /**
+     * Test setUser() sets name
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.8.0
+     */
+    public function testSetUserSetsName()
+    {
+        $user = new User();
+        $user->setFirstname('Brandon');
+        $user->setLastname('Brinnon');
+
+        $teacher = new Teacher($user);
+
+        $this->assertSame(
+            'Brandon Brinnon',
+            $teacher->getName()
+        );
+    }
+
+    /**
+     * Test name
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.8.0
+     */
+    public function testName()
+    {
+        $teacher = new Teacher();
+        $teacher->setName('Corky Barofsky');
+
+        $this->assertSame(
+            'Corky Barofsky',
+            $teacher->getName()
         );
     }
 
