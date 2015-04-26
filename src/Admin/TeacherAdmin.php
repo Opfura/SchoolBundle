@@ -55,6 +55,7 @@ class TeacherAdmin extends Admin
     {
         $datagridMapper
             ->add('user')
+            ->add('name')
             ->add('websiteUrl')
         ;
     }
@@ -73,7 +74,7 @@ class TeacherAdmin extends Admin
         $listMapper
             ->addIdentifier('identifier')
             ->add('user')
-            ->add('userName')
+            ->add('name')
             ->add('createdAt')
             ->add('updatedAt')
         ;
