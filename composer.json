@@ -2,6 +2,8 @@
     "name": "opfura/school-bundle",
     "description": "School Bundle for Opfura Application",
     "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Tom Haskins-Vaughan",
