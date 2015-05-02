@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "opfura/user-bundle": ">=0.4.0, <1.0",
+        "yeriki/user-bundle": "^1.0",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "jms/serializer-bundle": "~0.13@dev"
     },
