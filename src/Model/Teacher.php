@@ -11,7 +11,7 @@ namespace Opfura\SchoolBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Opfura\UserBundle\Model\UserInterface;
+use Yeriki\UserBundle\Model\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

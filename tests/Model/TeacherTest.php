@@ -9,8 +9,8 @@
 
 namespace Opfura\SchoolBundle\Tests\Model;
 
-use Opfura\SchoolBundle\Model\Teacher,
-    Opfura\UserBundle\Model\User;
+use Opfura\SchoolBundle\Model\Teacher;
+use Yeriki\UserBundle\Model\User;
 
 /**
  * TeacherTest
