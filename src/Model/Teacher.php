@@ -20,7 +20,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  0.6.0
  */
-class Teacher
+class Teacher implements TeacherInterface
 {
     /**
      * user
