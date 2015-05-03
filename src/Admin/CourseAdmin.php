@@ -34,6 +34,8 @@ class CourseAdmin extends Admin
     {
         $formMapper
             ->add('title', 'text', array('label' => 'Course Title'))
+            ->add('description')
+            ->add('teacher')
         ;
     }
 
@@ -49,6 +51,8 @@ class CourseAdmin extends Admin
     {
         $datagridMapper
             ->add('title')
+            ->add('description')
+            ->add('teacher')
         ;
     }
 
@@ -65,6 +69,7 @@ class CourseAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title')
+            ->add('teacher')
             ->add('createdAt')
         ;
     }
