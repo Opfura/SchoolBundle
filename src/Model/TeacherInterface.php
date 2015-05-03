@@ -15,7 +15,7 @@ namespace Opfura\SchoolBundle\Model;
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  0.11.0
  */
-class Teacher
+interface TeacherInterface
 {
     /**
      * Get user
