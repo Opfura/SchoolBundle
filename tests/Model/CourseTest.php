@@ -9,7 +9,8 @@
 
 namespace Opfura\SchoolBundle\Tests\Model;
 
-use Opfura\SchoolBundle\Model\Course;
+use Opfura\SchoolBundle\Model\Course,
+    Opfura\SchoolBundle\Model\Teacher;
 
 /**
  * CourseTest
@@ -34,6 +35,39 @@ class CourseTest extends \PHPUnit_Framework_TestCase
             'Painting for beginners',
             $course->getTitle()
         );
+    }
+
+    /**
+     * Test description
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     */
+    public function testDescription()
+    {
+        $course = new Course();
+        $course->setDescription('Painting for beginners');
+
+        $this->assertSame(
+            'Painting for beginners',
+            $course->getDescription()
+        );
+    }
+
+    /**
+     * Test teacher
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     */
+    public function testTeacher()
+    {
+        $teacher = new Teacher();
+
+        $course = new Course();
+        $course->setTeacher($teacher);
+
+        $this->assertSame($teacher, $course->getTeacher());
     }
 
     /**

@@ -27,6 +27,18 @@ class Course
     protected $title;
 
     /**
+     * @ORM\Column(type="string", length=500)
+     */
+    protected $description;
+
+    /**
+     * teacher
+     *
+     * @var \Opfura\SchoolBundle\Model\TeacherInterface
+     */
+    protected $teacher;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="created_at")
      */
@@ -79,6 +91,66 @@ class Course
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set description
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     *
+     * @param  string $description
+     *
+     * @return Course
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set teacher
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     *
+     * @param \Opfura\SchoolBundle\Model\TeacherInterface $teacher
+     *
+     * @return Course
+     */
+    public function setTeacher(TeacherInterface $teacher)
+    {
+        $this->teacher = $teacher;
+
+        return $this;
+    }
+
+    /**
+     * Get teacher
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     *
+     * @return Teacher
+     */
+    public function getTeacher()
+    {
+        return $this->teacher;
     }
 
     /**
