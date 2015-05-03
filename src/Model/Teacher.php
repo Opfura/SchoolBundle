@@ -9,7 +9,9 @@
 
 namespace Opfura\SchoolBundle\Model;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection,
+    Doctrine\ORM\Mapping as ORM;
+
 use Gedmo\Mapping\Annotation as Gedmo;
 use Yeriki\UserBundle\Model\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -28,6 +30,13 @@ class Teacher implements TeacherInterface
      * @var \Opfura\UserBundle\Model\UserInterface
      */
     protected $user;
+
+    /**
+     * courses
+     *
+     * @var ArrayCollection|Course[]
+     */
+    protected $courses;
 
     /**
      * name
@@ -102,6 +111,8 @@ class Teacher implements TeacherInterface
         if ($user) {
             $this->setUser($user);
         }
+
+        $this->courses = new ArrayCollection();
     }
 
     /**
@@ -162,6 +173,36 @@ class Teacher implements TeacherInterface
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add course
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     *
+     * @param Course $course
+     *
+     * @return Teacher
+     */
+    public function addCourse(Course $course)
+    {
+        $this->courses[] = $course;
+
+        return $this;
+    }
+
+    /**
+     * Get courses
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     *
+     * @return ArrayCollection|Course[]
+     */
+    public function getCourses()
+    {
+        return $this->courses;
     }
 
     /**

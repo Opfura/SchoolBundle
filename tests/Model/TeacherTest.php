@@ -9,7 +9,9 @@
 
 namespace Opfura\SchoolBundle\Tests\Model;
 
-use Opfura\SchoolBundle\Model\Teacher;
+use Opfura\SchoolBundle\Model\Course,
+    Opfura\SchoolBundle\Model\Teacher;
+
 use Yeriki\UserBundle\Model\User;
 
 /**
@@ -82,6 +84,25 @@ class TeacherTest extends \PHPUnit_Framework_TestCase
             'Brandon Brinnon',
             $teacher->getName()
         );
+    }
+
+    /**
+     * Test courses
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     */
+    public function testCourses()
+    {
+        $teacher = new Teacher();
+
+        $this->assertSame(0, $teacher->getCourses()->count());
+
+        $teacher->addCourse(new Course());
+        $teacher->addCourse(new Course());
+        $teacher->addCourse(new Course());
+
+        $this->assertSame(3, $teacher->getCourses()->count());
     }
 
     /**
