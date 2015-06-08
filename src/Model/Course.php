@@ -39,6 +39,28 @@ class Course
     protected $teacher;
 
     /**
+     * lesson info
+     *
+     * @ORM\Column(
+     *     type="string",
+     *     name="lesson_info",
+     *     nullable=true
+     * )
+     */
+    protected $lessonInfo;
+
+    /**
+     * first lesson at
+     *
+     * @ORM\Column(
+     *     type="datetime",
+     *     name="first_lesson_at",
+     *     nullable=true
+     * )
+     */
+    protected $firstLessonAt;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="created_at")
      */
@@ -61,6 +83,19 @@ class Course
     public function __toString()
     {
         return $this->getTitle();
+    }
+
+    /**
+     * Get id
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.12.0
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -151,6 +186,66 @@ class Course
     public function getTeacher()
     {
         return $this->teacher;
+    }
+
+    /**
+     * Set lessonInfo
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.12.0
+     *
+     * @param  string $lessonInfo
+     *
+     * @return Course
+     */
+    public function setLessonInfo($lessonInfo)
+    {
+        $this->lessonInfo = $lessonInfo;
+
+        return $this;
+    }
+
+    /**
+     * Get lessonInfo
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.12.0
+     *
+     * @return string
+     */
+    public function getLessonInfo()
+    {
+        return $this->lessonInfo;
+    }
+
+    /**
+     * Set firstLessonAt
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.12.0
+     *
+     * @param  \DateTime $firstLessonAt
+     *
+     * @return Course
+     */
+    public function setFirstLessonAt(\DateTime $firstLessonAt)
+    {
+        $this->firstLessonAt = $firstLessonAt;
+
+        return $this;
+    }
+
+    /**
+     * Get firstLessonAt
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.12.0
+     *
+     * @return \DateTime
+     */
+    public function getFirstLessonAt()
+    {
+        return $this->firstLessonAt;
     }
 
     /**
