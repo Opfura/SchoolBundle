@@ -34,6 +34,7 @@ class TeacherAdmin extends Admin
     {
         $formMapper
             ->add('user')
+            ->add('name')
             ->add('miniBio', 'textarea', array(
                 'attr' => array(
                     'rows' => 3,

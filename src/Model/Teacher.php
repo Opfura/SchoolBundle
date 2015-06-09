@@ -251,6 +251,23 @@ class Teacher implements TeacherInterface
     }
 
     /**
+     * Set slug
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.13.0
+     *
+     * @param string
+     *
+     * @return Teacher
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
      * Get slug
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>

@@ -27,6 +27,17 @@ class Course
     protected $title;
 
     /**
+     * slug
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.13.0
+     *
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(type="string", unique=true)
+     */
+    protected $slug;
+
+    /**
      * @ORM\Column(type="string", length=500, nullable=true)
      */
     protected $description;
@@ -37,6 +48,13 @@ class Course
      * @var \Opfura\SchoolBundle\Model\TeacherInterface
      */
     protected $teacher;
+
+    /**
+     * department
+     *
+     * @var \Opfura\SchoolBundle\Model\DepartmentInterface
+     */
+    protected $department;
 
     /**
      * lesson info
@@ -129,6 +147,36 @@ class Course
     }
 
     /**
+     * Set slug
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.13.0
+     *
+     * @param string
+     *
+     * @return Course
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.13.0
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Set description
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
@@ -186,6 +234,36 @@ class Course
     public function getTeacher()
     {
         return $this->teacher;
+    }
+
+    /**
+     * Set department
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.13.0
+     *
+     * @param \Opfura\SchoolBundle\Model\DepartmentInterface $department
+     *
+     * @return Course
+     */
+    public function setDepartment(DepartmentInterface $department)
+    {
+        $this->department = $department;
+
+        return $this;
+    }
+
+    /**
+     * Get department
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.13.0
+     *
+     * @return Department
+     */
+    public function getDepartment()
+    {
+        return $this->department;
     }
 
     /**
