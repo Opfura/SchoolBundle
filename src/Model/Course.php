@@ -50,6 +50,13 @@ class Course
     protected $teacher;
 
     /**
+     * teacher2
+     *
+     * @var \Opfura\SchoolBundle\Model\TeacherInterface
+     */
+    protected $teacher2;
+
+    /**
      * department
      *
      * @var \Opfura\SchoolBundle\Model\DepartmentInterface
@@ -234,6 +241,36 @@ class Course
     public function getTeacher()
     {
         return $this->teacher;
+    }
+
+    /**
+     * Set teacher2
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.14.0
+     *
+     * @param \Opfura\SchoolBundle\Model\TeacherInterface $teacher2
+     *
+     * @return Course
+     */
+    public function setTeacher2(TeacherInterface $teacher2)
+    {
+        $this->teacher2 = $teacher2;
+
+        return $this;
+    }
+
+    /**
+     * Get teacher2
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.14.0
+     *
+     * @return Teacher
+     */
+    public function getTeacher2()
+    {
+        return $this->teacher2;
     }
 
     /**
