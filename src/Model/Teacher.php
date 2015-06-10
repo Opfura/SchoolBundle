@@ -125,11 +125,7 @@ class Teacher implements TeacherInterface
      */
     public function __toString()
     {
-        if ($this->getUser()) {
-            return $this->getUser()->getName();
-        }
-
-        return 'Unnamed teacher';
+        return $this->getName();
     }
 
     /**
