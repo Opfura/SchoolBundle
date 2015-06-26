@@ -41,6 +41,7 @@ class TeacherAdmin extends Admin
                 ),
             ))
             ->add('websiteUrl')
+            ->add('avatar', 'file')
         ;
     }
 

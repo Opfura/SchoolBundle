@@ -15,12 +15,16 @@ use Doctrine\Common\Collections\ArrayCollection,
 use Gedmo\Mapping\Annotation as Gedmo;
 use Yeriki\UserBundle\Model\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Teacher
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  0.6.0
+ *
+ * @Vich\Uploadable
  */
 class Teacher implements TeacherInterface
 {
@@ -97,6 +101,26 @@ class Teacher implements TeacherInterface
      * @ORM\Column(type="datetime", name="updated_at")
      */
     protected $updatedAt;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple
+     * property.
+     *
+     * @Vich\UploadableField(
+     *     mapping="teacher_avatar",
+     *     fileNameProperty="avatarFilename"
+     * )
+     *
+     * @var File $avatar
+     */
+    protected $avatar;
+
+    /**
+     * @ORM\Column(type="string", length=255, name="avatar_filename")
+     *
+     * @var string $avatarFilename
+     */
+    protected $avatarFilename;
 
     /**
      * Constructor
@@ -394,5 +418,61 @@ class Teacher implements TeacherInterface
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set avatar
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.14.0
+
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $avatar
+     */
+    public function setAvatar(File $avatar = null)
+    {
+        $this->avatar = $avatar;
+
+        if ($avatar) {
+            $this->updatedAt = new \DateTime();
+        }
+    }
+
+    /**
+     * Get avatar
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.14.0
+     *
+     * @return File
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * Set avatarFilename
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.14.0
+     *
+     * @param string $avatarFilename
+     */
+    public function setAvatarFilename($avatarFilename)
+    {
+        $this->avatarFilename = $avatarFilename;
+    }
+
+    /**
+     * Set avatarFilename
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.14.0
+     *
+     * @return string
+     */
+    public function getAvatarFilename()
+    {
+        return $this->avatarFilename;
     }
 }
