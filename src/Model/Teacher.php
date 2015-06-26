@@ -424,7 +424,7 @@ class Teacher implements TeacherInterface
      * Set avatar
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  0.14.0
+     * @since  0.15.0
 
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $avatar
      */
@@ -441,7 +441,7 @@ class Teacher implements TeacherInterface
      * Get avatar
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  0.14.0
+     * @since  0.15.0
      *
      * @return File
      */
@@ -454,7 +454,7 @@ class Teacher implements TeacherInterface
      * Set avatarFilename
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  0.14.0
+     * @since  0.15.0
      *
      * @param string $avatarFilename
      */
@@ -467,7 +467,7 @@ class Teacher implements TeacherInterface
      * Set avatarFilename
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  0.14.0
+     * @since  0.15.0
      *
      * @return string
      */
