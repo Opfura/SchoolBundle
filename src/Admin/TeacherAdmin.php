@@ -39,9 +39,12 @@ class TeacherAdmin extends Admin
                 'attr' => array(
                     'rows' => 3,
                 ),
+                'required' => false,
             ))
             ->add('websiteUrl')
-            ->add('avatar', 'file')
+            ->add('avatar', 'file', array(
+                'required' => false,
+            ))
         ;
     }
 
