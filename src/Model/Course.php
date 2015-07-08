@@ -38,7 +38,7 @@ class Course
     protected $slug;
 
     /**
-     * @ORM\Column(type="string", length=500, nullable=true)
+     * @ORM\Column(type="string", length=4000, nullable=true)
      */
     protected $description;
 
