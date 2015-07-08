@@ -34,7 +34,8 @@ class TeacherAdmin extends Admin
     {
         $formMapper
             ->add('user')
-            ->add('name')
+            ->add('firstname')
+            ->add('lastname')
             ->add('miniBio', 'textarea', array(
                 'attr' => array(
                     'rows' => 3,
@@ -60,7 +61,8 @@ class TeacherAdmin extends Admin
     {
         $datagridMapper
             ->add('user')
-            ->add('name')
+            ->add('firstname')
+            ->add('lastname')
             ->add('websiteUrl')
         ;
     }
@@ -79,7 +81,8 @@ class TeacherAdmin extends Admin
         $listMapper
             ->addIdentifier('identifier')
             ->add('user')
-            ->add('name')
+            ->add('firstname')
+            ->add('lastname')
             ->add('createdAt')
             ->add('updatedAt')
         ;

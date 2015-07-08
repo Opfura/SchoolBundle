@@ -43,14 +43,24 @@ class Teacher implements TeacherInterface
     protected $courses;
 
     /**
-     * name
+     * firstname
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  0.8.0
+     * @since  0.16.0
      *
      * @ORM\Column(type="string")
      */
-    protected $name;
+    protected $firstname;
+
+    /**
+     * lastname
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.16.0
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $lastname;
 
     /**
      * slug
@@ -58,7 +68,7 @@ class Teacher implements TeacherInterface
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  0.8.0
      *
-     * @Gedmo\Slug(fields={"name"})
+     * @Gedmo\Slug(fields={"firstname", "lastname"})
      * @ORM\Column(type="string", unique=true)
      */
     protected $slug;
@@ -71,11 +81,11 @@ class Teacher implements TeacherInterface
      *
      * @Assert\Length(
      *      min = 30,
-     *      max = 250,
+     *      max = 5000,
      *      minMessage = "Mini bio must be at least {{ limit }} characters long",
      *      maxMessage = "Mini bio cannot be longer than {{ limit }} characters"
      * )
-     * @ORM\Column(type="string", name="mini_bio", nullable=true)
+     * @ORM\Column(type="text", name="mini_bio", nullable=true)
      */
     protected $miniBio;
 
@@ -116,7 +126,12 @@ class Teacher implements TeacherInterface
     protected $avatar;
 
     /**
-     * @ORM\Column(type="string", length=255, name="avatar_filename")
+     * @ORM\Column(
+     *     type="string",
+     *     length=255,
+     *     name="avatar_filename",
+     *     nullable=true
+     * )
      *
      * @var string $avatarFilename
      */
@@ -179,7 +194,8 @@ class Teacher implements TeacherInterface
     {
         $this->user = $user;
 
-        $this->setName($user->getName());
+        $this->setFirstname($user->getFirstname());
+        $this->setLastname($user->getLastname());
     }
 
     /**
@@ -241,33 +257,76 @@ class Teacher implements TeacherInterface
     }
 
     /**
-     * Set name
+     * Set firstname
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  0.8.0
+     * @since  0.16.0
      *
-     * @param string $name
+     * @param string $firstname
      *
      * @return Teacher
      */
-    public function setName($name)
+    public function setFirstname($firstname)
     {
-        $this->name = $name;
+        $this->firstname = $firstname;
 
         return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.16.0
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set lastname
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.16.0
+     *
+     * @param string $lastname
+     *
+     * @return Teacher
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.16.0
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
     }
 
     /**
      * Get name
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  0.8.0
+     * @since  0.16.0
      *
      * @return string
      */
     public function getName()
     {
-        return $this->name;
+        return trim($this->getFirstname().' '.$this->getLastname());
     }
 
     /**
