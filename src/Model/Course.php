@@ -57,6 +57,13 @@ class Course
     protected $teacher2;
 
     /**
+     * location
+     *
+     * @var \Opfura\SchoolBundle\Model\LocationInterface
+     */
+    protected $location;
+
+    /**
      * department
      *
      * @var \Opfura\SchoolBundle\Model\DepartmentInterface
@@ -271,6 +278,36 @@ class Course
     public function getTeacher2()
     {
         return $this->teacher2;
+    }
+
+    /**
+     * Set teacher
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.19.0
+     *
+     * @param \Opfura\SchoolBundle\Model\LocationInterface $location
+     *
+     * @return Course
+     */
+    public function setLocation(LocationInterface $location)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.19.0
+     *
+     * @return Location
+     */
+    public function getLocation()
+    {
+        return $this->location;
     }
 
     /**
