@@ -106,23 +106,6 @@ class TeacherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test name
-     *
-     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  0.8.0
-     */
-    public function testName()
-    {
-        $teacher = new Teacher();
-        $teacher->setName('Corky Barofsky');
-
-        $this->assertSame(
-            'Corky Barofsky',
-            $teacher->getName()
-        );
-    }
-
-    /**
      * Test getUserName()
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
