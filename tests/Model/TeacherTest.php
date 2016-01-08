@@ -12,7 +12,7 @@ namespace Opfura\SchoolBundle\Tests\Model;
 use Opfura\SchoolBundle\Model\Course,
     Opfura\SchoolBundle\Model\Teacher;
 
-use Yeriki\UserBundle\Model\User;
+use Phospr\UserBundle\Model\User;
 
 /**
  * TeacherTest

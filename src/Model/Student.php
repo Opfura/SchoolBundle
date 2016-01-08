@@ -13,7 +13,7 @@ use Doctrine\Common\Collections\ArrayCollection,
     Doctrine\ORM\Mapping as ORM;
 
 use Gedmo\Mapping\Annotation as Gedmo;
-use Yeriki\UserBundle\Model\UserInterface;
+use Phospr\UserBundle\Model\UserInterface;
 
 /**
  * Student
